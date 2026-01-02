@@ -11,7 +11,6 @@ def parse_scores_from_string(s):
     return scores
 
 def read_scores():
-    # Priority: CLI args > SCORES env var > scores.txt > interactive prompt
     if len(sys.argv) > 1:
         return parse_scores_from_string(" ".join(sys.argv[1:]))
 
@@ -36,10 +35,16 @@ def main():
     total = sum(scores)
     avg = total / len(scores)
 
+    # main/master branch output
     print("=== main/master branch output ===")
     print(f"Count of scores: {len(scores)}")
     print(f"Sum: {total}")
     print(f"Average: {avg}")
+
+    # local branch output (your added part)
+    print("\n=== local branch output (max & min) ===")
+    print(f"Maximum: {max(scores)}")
+    print(f"Minimum: {min(scores)}")
 
 if __name__ == "__main__":
     main()
